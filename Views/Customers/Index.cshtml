@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MovieCustomerWithAuthMVC_app.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer list</h2>
+<table class="table table-bordered table-condensed table-striped">
+    <thead>
+        <tr>
+            <td>Customer Name</td>
+            <td>Discount Rate</td>
+            <td>Customer DOB</td>
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var customer in Model)
+            {
+            <tr>
+
+                <td>@Html.ActionLink(customer.Name, "Index", "Customers", new { id=customer.Id }, null)</td>
+                <td>@customer.MembershipType.DiscountRate</td>
+                <td>@customer.DOB</td>
+
+
+            </tr>
+             }
+
+        </tbody>
+
+    </table>
+
+
+
